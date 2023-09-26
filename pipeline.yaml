@@ -1,0 +1,12 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV1@0
+  inputs:
+    command: 'validate'
+    workingDirectory: '$(System.DefaultWorkingDirectory)'
+    environmentServiceNameAzureRM: '<Your AzureRM service connection name>'
